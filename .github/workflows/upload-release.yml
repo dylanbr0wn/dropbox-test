@@ -21,6 +21,8 @@ jobs:
           node-version: 16
       - name: CD into Folder
         run: cd artifacts
+      - name: list contents
+        run: ls -l
       - name: Upload to Dropbox
         uses: aTable/deploy-to-dropbox@v1.0.7
         with:
