@@ -18,9 +18,9 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - name: Add read permissions
-        run: |
-          chmod +r artifacts
+      # - name: Add read permissions
+      #   run: |
+      #     chmod +r artifacts
       - name: Get version
         id: info
         run: |
