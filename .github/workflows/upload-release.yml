@@ -19,10 +19,12 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
+      - name: CD into Folder
+        run: cd artifacts
       - name: Upload to Dropbox
         uses: aTable/deploy-to-dropbox@v1.0.7
         with:
           DROPBOX_ACCESS_TOKEN: ${{ secrets.DROPBOX_ACCESS_TOKEN }}
           DROPBOX_DESTINATION_PATH_PREFIX: "/MCE Files/OMS/${{ github.event.release.name }}/"
-          GLOB: "artifacts/*"
+          GLOB: "*"
           DEBUG: false
