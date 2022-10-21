@@ -17,8 +17,8 @@ jobs:
           draft: true
           prerelease: false
           commit: ${{ github.sha }}
-          name: test 1
-          tag: 1
+          name: test 20
+          tag: 20
           body: this is a test
           artifacts: >-
             test.txt,
