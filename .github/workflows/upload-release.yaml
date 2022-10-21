@@ -17,8 +17,8 @@ jobs:
           workflow_conclusion: success
           path: artifacts
       - uses: actions/setup-node@v3
-            with:
-              node-version: 16
+        with:
+          node-version: 16
       - name: Get version
         id: info
         run: |
