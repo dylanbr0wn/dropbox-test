@@ -29,4 +29,4 @@ jobs:
           DROPBOX_ACCESS_TOKEN: ${{ secrets.DROPBOX_ACCESS_TOKEN }}
           DROPBOX_DESTINATION_PATH_PREFIX: "/MCE Files/OMS/${{ github.event.release.name }}/"
           GLOB: "*"
-          DEBUG: false
+          DEBUG: true
