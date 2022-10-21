@@ -15,7 +15,6 @@ jobs:
           github_token: ${{secrets.GITHUB_TOKEN}}
           workflow: release.yml
           workflow_conclusion: success
-          path: artifacts
       - uses: actions/setup-node@v3
         with:
           node-version: 16
