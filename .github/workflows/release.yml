@@ -13,8 +13,8 @@ jobs:
         id: release
         uses: ncipollo/release-action@v1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          draft: true
+          token: ${{secrets.GITHUB_TOKEN}}
+          draft: false
           prerelease: false
           commit: ${{ github.sha }}
           name: test 1
