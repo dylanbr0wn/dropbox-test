@@ -19,11 +19,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - name: CD into Folder
-        run: cd ./artifacts
-      - name: list contents
-        run: ls -l
       - name: Upload to Dropbox
+        working-directory: ./artifacts
         uses: aTable/deploy-to-dropbox@v1.0.7
         with:
           DROPBOX_ACCESS_TOKEN: ${{ secrets.DROPBOX_ACCESS_TOKEN }}
