@@ -1,7 +1,9 @@
 name: Upload Release
+
 on:
   release:
     types: [published]
+    
 jobs:
   download:
     runs-on: ubuntu-latest
