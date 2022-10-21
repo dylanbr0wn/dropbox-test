@@ -5,7 +5,7 @@ on:
     types: [published]
     
 jobs:
-  download:
+  upload-to-dropbox:
     runs-on: ubuntu-latest
     steps:
       - name: Download artifact
@@ -16,23 +16,17 @@ jobs:
           workflow: release.yml
           workflow_conclusion: success
           path: artifacts
-  upload:
-      needs: 
-        - download
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v3
-        - uses: actions/setup-node@v3
-          with:
-            node-version: 16
-        - name: Get version
-          id: info
-          run: |
-            echo "::set-output name=version::4"
-        - name: Upload to Dropbox
-          uses: aTable/deploy-to-dropbox@v1.0.7
-          with:
-            DROPBOX_ACCESS_TOKEN: ${{ secrets.DROPBOX_ACCESS_TOKEN }}
-            DROPBOX_DESTINATION_PATH_PREFIX: "/MCE Files/OMS/${{ steps.info.outputs.version }}/"
-            GLOB: "artifacts/*"
-            DEBUG: true
+      - uses: actions/setup-node@v3
+            with:
+              node-version: 16
+      - name: Get version
+        id: info
+        run: |
+          echo "::set-output name=version::5"
+      - name: Upload to Dropbox
+        uses: aTable/deploy-to-dropbox@v1.0.7
+        with:
+          DROPBOX_ACCESS_TOKEN: ${{ secrets.DROPBOX_ACCESS_TOKEN }}
+          DROPBOX_DESTINATION_PATH_PREFIX: "/MCE Files/OMS/${{ steps.info.outputs.version }}/"
+          GLOB: "artifacts/*"
+          DEBUG: true
