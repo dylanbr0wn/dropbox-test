@@ -1,0 +1,27 @@
+name: Release
+on:
+  push:
+    branches:
+      - master
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Create release
+        id: release
+        uses: ncipollo/release-action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          draft: true
+          prerelease: false
+          commit: ${{ github.sha }}
+          name: test 1
+          tag: 1
+          body: this is a test
+          artifacts: >-
+            test.txt,
+            readme.md
+          artifactErrorsFailBuild: true
+          allowUpdates: true
