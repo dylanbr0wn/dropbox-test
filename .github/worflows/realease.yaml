@@ -1,0 +1,17 @@
+name: Release
+on:
+  push:
+    branches:
+      - master
+jobs:
+  release:
+     name: Release
+      runs-on: ubuntu-latest
+      steps:
+        - name: Deploy to Dropbox
+          uses: aTable/deploy-to-dropbox@v1.0.7
+          with:
+            DROPBOX_ACCESS_TOKEN: ${{ secrets.DROPBOX_ACCESS_TOKEN }}
+            DROPBOX_DESTINATION_PATH_PREFIX: "/"
+            GLOB: "test.txt"
+            DEBUG: false
