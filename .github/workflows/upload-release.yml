@@ -19,6 +19,12 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
+      - name: HMM
+        run: |
+        pwd             
+        mkdir hello
+        cd hello
+        pwd     
       - name: Upload to Dropbox
         working-directory: ./artifacts
         uses: aTable/deploy-to-dropbox@v1.0.7
