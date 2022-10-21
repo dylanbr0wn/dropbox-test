@@ -20,7 +20,7 @@ jobs:
         with:
           node-version: 16
       - name: CD into Folder
-        run: cd artifacts
+        run: cd ./artifacts
       - name: list contents
         run: ls -l
       - name: Upload to Dropbox
