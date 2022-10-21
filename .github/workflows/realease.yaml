@@ -8,6 +8,10 @@ jobs:
     name: Release
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
       - name: Deploy to Dropbox
         uses: aTable/deploy-to-dropbox@v1.0.7
         with:
