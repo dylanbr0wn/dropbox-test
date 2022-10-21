@@ -9,6 +9,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: actions/upload-artifact@v2
+        with:
+          name: artifacts
+          path: |
+            test.txt 
+            readme.md
+          retention-days: 1
+          if-no-files-found: error
       - name: Create release
         id: release
         uses: ncipollo/release-action@v1
